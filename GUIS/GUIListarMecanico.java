@@ -13,8 +13,9 @@ public class GUIListarMecanico extends javax.swing.JPanel {
     /**
      * Creates new form GUIListarMecanico
      */
-    public GUIListarMecanico() {
+    public GUIListarMecanico(String Mecanico) {
         initComponents();
+        jTextArea1.setText(Mecanico);
     }
 
     /**

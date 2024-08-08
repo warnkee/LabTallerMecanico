@@ -4,7 +4,9 @@
  */
 package GUIS;
 
+import Mecanicos.ListaMecanicos;
 import Mecanicos.Mecanico;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -15,8 +17,10 @@ public class GUIMecanico extends javax.swing.JInternalFrame {
     /**
      * Creates new form Prueba
      */
+    private ListaMecanicos mec;
     public GUIMecanico() {
         initComponents();
+        mec = new ListaMecanicos();
     }
 
     /**
@@ -184,25 +188,58 @@ public class GUIMecanico extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_TxtPrecioActionPerformed
 
     private void BtnAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnAgregarActionPerformed
+    Mecanico mecanico = new Mecanico(this.TxtCodigo.getText(),this.TxtNombre.getText(),this.TxtPrecio.getText());
+    mec.AgregarMecanico(mecanico);
+    this.TxtCodigo.setText("");
+    this.TxtNombre.setText("");
+    this.TxtPrecio.setText("");
     
+          this.BtnBuscar.setEnabled(false);
+       this.BtnAgregar.setEnabled(false);
+       this.BtnEliminar.setEnabled(false);
     }//GEN-LAST:event_BtnAgregarActionPerformed
 
     private void BtnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnEliminarActionPerformed
-    
+    if(!TxtCodigo.getText().isEmpty()){
+        mec.EliminarMecanico(this.TxtCodigo.getText());
+        this.TxtCodigo.setText("");
+    }else{
+        JOptionPane.showMessageDialog(null, "El codigo no puede estar vacio", "Informacion incompleta", JOptionPane.WARNING_MESSAGE);
+        }
+       this.BtnBuscar.setEnabled(false);
+       this.BtnAgregar.setEnabled(false);
+       this.BtnEliminar.setEnabled(false);
     }//GEN-LAST:event_BtnEliminarActionPerformed
 
     private void BtnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnBuscarActionPerformed
-
-
+        if(!TxtCodigo.getText().isEmpty()){
+       Mecanico mecanico = mec.BuscarMecanico(this.TxtCodigo.getText());
+       this.TxtCodigo.setText(mecanico.getId());
+       this.TxtNombre.setText(mecanico.getNombre());
+       this.TxtPrecio.setText(mecanico.getEspecialidad());
+        }else{
+                    JOptionPane.showMessageDialog(null, "El codigo no puede estar vacio", "Informacion incompleta", JOptionPane.WARNING_MESSAGE);
+        }
+          this.BtnBuscar.setEnabled(false);
+       this.BtnAgregar.setEnabled(false);
+       this.BtnEliminar.setEnabled(false);
+      
     }//GEN-LAST:event_BtnBuscarActionPerformed
 
     private void BtnListaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnListaActionPerformed
-  
+       GUIListarMecanico listaMecanicos = new GUIListarMecanico (mec.listarMecanicos());
+       listaMecanicos.setEnabled(true);
+       listaMecanicos.setEnabled(true);
     }//GEN-LAST:event_BtnListaActionPerformed
 
     private void NuevoBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NuevoBtnActionPerformed
-        // TODO add your handling code here:
-
+         this.TxtCodigo.setText("");
+        this.TxtNombre.setText("");
+        this.TxtPrecio.setText("");
+        
+        this.BtnBuscar.setEnabled(true);
+       this.BtnAgregar.setEnabled(true);
+       this.BtnEliminar.setEnabled(true);
     }//GEN-LAST:event_NuevoBtnActionPerformed
 
 
