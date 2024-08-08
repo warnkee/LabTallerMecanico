@@ -4,6 +4,7 @@
  */
 package Mecanicos;
 
+import Vehiculos.Vehiculo;
 import java.util.HashSet;
 
 /**
@@ -17,9 +18,16 @@ public class ListaMecanicos {
         mec = new HashSet<>();
     }
 
-    public HashSet<Mecanico> ListarMecanicos() {
-        return mec;
+    public String listarMecanicos() {
+       StringBuilder sb = new StringBuilder();
+    
+        for (Mecanico mecanico : mec) {
+        sb.append(mecanico).append("\n");
     }
+    
+    return sb.toString();
+}
+
     
     public void AgregarMecanico(Mecanico mecanico){
         mec.add(mecanico);
