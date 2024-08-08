@@ -29,4 +29,11 @@ public class ListaReparaciones {
         }
         return null;
     }
+           public String listarReparacionesCompletadas() {
+    StringBuilder sb = new StringBuilder(); 
+    for (Reparacion Rep : Reparaciones) {
+        sb.append(Rep.toString()).append("\n");  
+    }
+    return sb.toString();  
+           }
 }

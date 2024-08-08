@@ -4,6 +4,11 @@
  */
 package GUIS;
 
+import Mecanicos.ListaMecanicos;
+import Reparaciones.GestionarReparaciones;
+import Reparaciones.ListaReparaciones;
+import Vehiculos.ListaVehiculos;
+
 /**
  *
  * @author fabia
@@ -13,6 +18,7 @@ public class GUIMenu extends javax.swing.JFrame {
     /**
      * Creates new form GUIMenu
      */
+   
     public GUIMenu() {
         initComponents();
     }

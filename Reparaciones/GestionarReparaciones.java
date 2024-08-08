@@ -21,6 +21,7 @@ public class GestionarReparaciones {
     }
     
     public void AddReparacion(Reparacion rep){
+        
         colaReparaciones.add(rep);
     }
     
@@ -29,4 +30,18 @@ public class GestionarReparaciones {
       rep.setEstado(estado);
       this.list.AddReparaciones(rep);
   }  
+        public String listarReparacionesPendientes() {
+    StringBuilder sb = new StringBuilder(); 
+    for (Reparacion Rep : colaReparaciones) {
+        sb.append(Rep.toString()).append("\n");  
+    }
+    return sb.toString();  
+   
+           }
+        
+        public void EliminarRep(String ID){
+            for(Reparacion rep:colaReparaciones){
+                if(rep.getId().equals(ID))
+            }
+        }
 }

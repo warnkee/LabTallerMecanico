@@ -4,6 +4,8 @@
  */
 package Reparaciones;
 
+import Mecanicos.Mecanico;
+import Vehiculos.Vehiculo;
 import java.time.LocalDate;
 
 /**
@@ -12,14 +14,14 @@ import java.time.LocalDate;
  */
 public class Reparacion {
       private String id;
-    private String vehiculo;
-    private String mecanico;
+    private Vehiculo vehiculo;
+    private Mecanico mecanico;
     private LocalDate fecha;
     private String descripcion;
     private String estado;
 
     // Constructor
-    public Reparacion(String id, String vehiculo, String mecanico, String descripcion, String estado) {
+    public Reparacion(String id, Vehiculo vehiculo, Mecanico mecanico, String descripcion) {
         this.id = id;
         this.vehiculo = vehiculo;
         this.mecanico = mecanico;
@@ -27,6 +29,8 @@ public class Reparacion {
         this.descripcion = descripcion;
         this.estado = "Pendiente";
     }
+
+    
 
     // Getters y Setters
     public String getId() {
@@ -37,19 +41,19 @@ public class Reparacion {
         this.id = id;
     }
 
-    public String getVehiculo() {
+    public Vehiculo getVehiculo() {
         return vehiculo;
     }
 
-    public void setVehiculo(String vehiculo) {
+    public void setVehiculo(Vehiculo vehiculo) {
         this.vehiculo = vehiculo;
     }
 
-    public String getMecanico() {
+    public Mecanico getMecanico() {
         return mecanico;
     }
 
-    public void setMecanico(String mecanico) {
+    public void setMecanico(Mecanico mecanico) {
         this.mecanico = mecanico;
     }
 

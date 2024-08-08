@@ -33,6 +33,10 @@ public class Vehiculo {
         this.annioFabricacion = annioFabricacion;
     }
 
+    public Vehiculo(String matricula) {
+        this.matricula = matricula;
+    }
+
     @Override
     public String toString() {
         return "Vehiculo{" + "matricula=" + matricula + ", modelo=" + modelo + ", marca=" + marca + ", annioFabricacion=" + annioFabricacion + '}';

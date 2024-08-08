@@ -4,6 +4,12 @@
  */
 package GUIS;
 
+import Mecanicos.Mecanico;
+import Reparaciones.GestionarReparaciones;
+import Reparaciones.ListaReparaciones;
+import Reparaciones.Reparacion;
+import Vehiculos.Vehiculo;
+
 /**
  *
  * @author fabia
@@ -13,8 +19,13 @@ public class GUIReparacion extends javax.swing.JInternalFrame {
     /**
      * Creates new form GUIReparacion
      */
+    private ListaReparaciones listRep;
+    private GestionarReparaciones GestRep;
+    
     public GUIReparacion() {
         initComponents();
+        listRep = new ListaReparaciones();
+        GestRep = new GestionarReparaciones();
     }
 
     /**
@@ -32,12 +43,12 @@ public class GUIReparacion extends javax.swing.JInternalFrame {
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
-        TxtNombre = new javax.swing.JTextField();
-        TxtNombre1 = new javax.swing.JTextField();
-        TxtNombre2 = new javax.swing.JTextField();
-        TxtNombre3 = new javax.swing.JTextField();
-        TxtNombre4 = new javax.swing.JTextField();
-        TxtNombre5 = new javax.swing.JTextField();
+        TxtId = new javax.swing.JTextField();
+        TxtVehiculo = new javax.swing.JTextField();
+        TxtMecanico = new javax.swing.JTextField();
+        TxtFecha = new javax.swing.JTextField();
+        TxtDescripcion = new javax.swing.JTextField();
+        TxtEstado = new javax.swing.JTextField();
         NuevoBtn = new javax.swing.JButton();
         BtnAgregar = new javax.swing.JButton();
         BtnEliminar = new javax.swing.JButton();
@@ -49,7 +60,7 @@ public class GUIReparacion extends javax.swing.JInternalFrame {
         jLabel4.setText("Id");
 
         jLabel5.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel5.setText("Vehiculo");
+        jLabel5.setText("Matricula Vehiculo");
 
         jLabel6.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel6.setText("Descripcion");
@@ -58,10 +69,16 @@ public class GUIReparacion extends javax.swing.JInternalFrame {
         jLabel7.setText("Fecha");
 
         jLabel8.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel8.setText("Mecanico");
+        jLabel8.setText("Id Mecanico");
 
         jLabel9.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel9.setText("Estado");
+
+        TxtId.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                TxtIdActionPerformed(evt);
+            }
+        });
 
         NuevoBtn.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         NuevoBtn.setText("Nueva Consulta");
@@ -121,27 +138,27 @@ public class GUIReparacion extends javax.swing.JInternalFrame {
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLabel4)
                                 .addGap(131, 131, 131)
-                                .addComponent(jLabel5)))
-                        .addGap(86, 86, 86)
-                        .addComponent(jLabel8)
-                        .addGap(79, 79, 79)
+                                .addComponent(jLabel5)
+                                .addGap(33, 33, 33)
+                                .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jLabel7)
                         .addGap(106, 106, 106)
                         .addComponent(jLabel9)
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(TxtNombre4, javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(TxtDescripcion, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 429, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(TxtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(TxtId, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(TxtNombre1, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(TxtVehiculo, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(TxtNombre2, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(TxtMecanico, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(TxtNombre3, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(TxtFecha, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(TxtNombre5, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(TxtEstado, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 21, Short.MAX_VALUE))))
             .addGroup(layout.createSequentialGroup()
                 .addGap(146, 146, 146)
@@ -171,15 +188,15 @@ public class GUIReparacion extends javax.swing.JInternalFrame {
                     .addComponent(jLabel8))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(TxtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(TxtNombre1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(TxtNombre2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(TxtNombre3, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(TxtNombre5, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(TxtId, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(TxtVehiculo, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(TxtMecanico, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(TxtFecha, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(TxtEstado, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(jLabel6)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(TxtNombre4, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(TxtDescripcion, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(34, 34, 34)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(NuevoBtn)
@@ -201,11 +218,16 @@ public class GUIReparacion extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_NuevoBtnActionPerformed
 
     private void BtnAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnAgregarActionPerformed
-
+   Vehiculo v = new Vehiculo(this.TxtVehiculo.getText());
+   Mecanico m = new Mecanico(this.TxtMecanico.getText());
+   Reparacion rep = new Reparacion(this.TxtId.getText(),v,m,this.TxtDescripcion.getText());
+      GestRep.AddReparacion(rep);
+      
     }//GEN-LAST:event_BtnAgregarActionPerformed
 
     private void BtnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnEliminarActionPerformed
-
+      
+        
     }//GEN-LAST:event_BtnEliminarActionPerformed
 
     private void BtnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnBuscarActionPerformed
@@ -216,6 +238,10 @@ public class GUIReparacion extends javax.swing.JInternalFrame {
 
     }//GEN-LAST:event_BtnListaActionPerformed
 
+    private void TxtIdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TxtIdActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_TxtIdActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BtnAgregar;
@@ -223,12 +249,12 @@ public class GUIReparacion extends javax.swing.JInternalFrame {
     private javax.swing.JButton BtnEliminar;
     private javax.swing.JButton BtnLista;
     private javax.swing.JButton NuevoBtn;
-    private javax.swing.JTextField TxtNombre;
-    private javax.swing.JTextField TxtNombre1;
-    private javax.swing.JTextField TxtNombre2;
-    private javax.swing.JTextField TxtNombre3;
-    private javax.swing.JTextField TxtNombre4;
-    private javax.swing.JTextField TxtNombre5;
+    private javax.swing.JTextField TxtDescripcion;
+    private javax.swing.JTextField TxtEstado;
+    private javax.swing.JTextField TxtFecha;
+    private javax.swing.JTextField TxtId;
+    private javax.swing.JTextField TxtMecanico;
+    private javax.swing.JTextField TxtVehiculo;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;

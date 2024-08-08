@@ -24,36 +24,36 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jLabel6" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Group type="102" alignment="0" attributes="0">
+                          <Component id="jLabel6" min="-2" max="-2" attributes="0"/>
+                          <Group type="102" attributes="0">
                               <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="131" max="-2" attributes="0"/>
                               <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
+                              <Component id="jLabel8" min="-2" pref="106" max="-2" attributes="0"/>
                           </Group>
                       </Group>
-                      <EmptySpace min="-2" pref="86" max="-2" attributes="0"/>
-                      <Component id="jLabel8" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="79" max="-2" attributes="0"/>
+                      <EmptySpace max="32767" attributes="0"/>
                       <Component id="jLabel7" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="106" max="-2" attributes="0"/>
                       <Component id="jLabel9" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="32767" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
-                      <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                          <Component id="TxtNombre4" alignment="0" max="32767" attributes="0"/>
-                          <Group type="102" attributes="0">
-                              <Component id="TxtNombre" min="-2" pref="139" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="1" attributes="0">
+                          <Component id="TxtDescripcion" alignment="0" min="-2" pref="429" max="-2" attributes="0"/>
+                          <Group type="102" alignment="1" attributes="0">
+                              <Component id="TxtId" min="-2" pref="139" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="TxtNombre1" min="-2" pref="139" max="-2" attributes="0"/>
+                              <Component id="TxtVehiculo" min="-2" pref="139" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="TxtNombre2" min="-2" pref="139" max="-2" attributes="0"/>
+                              <Component id="TxtMecanico" min="-2" pref="139" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="TxtNombre3" min="-2" pref="139" max="-2" attributes="0"/>
+                      <Component id="TxtFecha" min="-2" pref="139" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="TxtNombre5" min="-2" pref="139" max="-2" attributes="0"/>
+                      <Component id="TxtEstado" min="-2" pref="139" max="-2" attributes="0"/>
                       <EmptySpace min="0" pref="21" max="32767" attributes="0"/>
                   </Group>
               </Group>
@@ -92,16 +92,16 @@
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="TxtNombre" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
-                  <Component id="TxtNombre1" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
-                  <Component id="TxtNombre2" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
-                  <Component id="TxtNombre3" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
-                  <Component id="TxtNombre5" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
+                  <Component id="TxtId" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
+                  <Component id="TxtVehiculo" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
+                  <Component id="TxtMecanico" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
+                  <Component id="TxtFecha" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
+                  <Component id="TxtEstado" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
               <Component id="jLabel6" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="TxtNombre4" min="-2" pref="30" max="-2" attributes="0"/>
+              <Component id="TxtDescripcion" min="-2" pref="30" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="NuevoBtn" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -132,7 +132,7 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Segoe UI" size="14" style="1"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Vehiculo"/>
+        <Property name="text" type="java.lang.String" value="Matricula Vehiculo"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel6">
@@ -156,7 +156,7 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Segoe UI" size="14" style="1"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Mecanico"/>
+        <Property name="text" type="java.lang.String" value="Id Mecanico"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel9">
@@ -167,17 +167,20 @@
         <Property name="text" type="java.lang.String" value="Estado"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="TxtNombre">
+    <Component class="javax.swing.JTextField" name="TxtId">
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="TxtIdActionPerformed"/>
+      </Events>
     </Component>
-    <Component class="javax.swing.JTextField" name="TxtNombre1">
+    <Component class="javax.swing.JTextField" name="TxtVehiculo">
     </Component>
-    <Component class="javax.swing.JTextField" name="TxtNombre2">
+    <Component class="javax.swing.JTextField" name="TxtMecanico">
     </Component>
-    <Component class="javax.swing.JTextField" name="TxtNombre3">
+    <Component class="javax.swing.JTextField" name="TxtFecha">
     </Component>
-    <Component class="javax.swing.JTextField" name="TxtNombre4">
+    <Component class="javax.swing.JTextField" name="TxtDescripcion">
     </Component>
-    <Component class="javax.swing.JTextField" name="TxtNombre5">
+    <Component class="javax.swing.JTextField" name="TxtEstado">
     </Component>
     <Component class="javax.swing.JButton" name="NuevoBtn">
       <Properties>

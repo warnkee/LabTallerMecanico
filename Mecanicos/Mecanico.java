@@ -38,6 +38,10 @@ public class Mecanico {
     public Mecanico() {
     }
 
+    public Mecanico(String id) {
+        this.id = id;
+    }
+
     @Override
     public String toString() {
         return "Mecanico: " + " id: " + id + ", nombre: " + nombre + ", especialidad: " + especialidad ;
