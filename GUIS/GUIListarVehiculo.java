@@ -13,8 +13,9 @@ public class GUIListarVehiculo extends javax.swing.JPanel {
     /**
      * Creates new form GUIListarVehiculo
      */
-    public GUIListarVehiculo() {
+    public GUIListarVehiculo(String vehiculos) {
         initComponents();
+        jTextArea1.setText(vehiculos);
     }
 
     /**
