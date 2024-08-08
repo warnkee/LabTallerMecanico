@@ -9,5 +9,42 @@ package Mecanicos;
  * @author ASUS
  */
 public class Mecanico {
+    private String id;
+    private String nombre;
+    private String especialidad;
+
+    public String getId() {
+        return id;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public String getEspecialidad() {
+        return especialidad;
+    }
+
+    public void setEspecialidad(String especialidad) {
+        this.especialidad = especialidad;
+    }
+
+    public Mecanico(String id, String nombre, String especialidad) {
+        this.id = id;
+        this.nombre = nombre;
+        this.especialidad = especialidad;
+    }
+
+    public Mecanico() {
+    }
+
+    @Override
+    public String toString() {
+        return "Mecanico: " + " id: " + id + ", nombre: " + nombre + ", especialidad: " + especialidad ;
+    }
+    
+    
+    
+    
     
 }
