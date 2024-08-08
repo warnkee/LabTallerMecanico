@@ -6,6 +6,8 @@ package Clientes;
 
 import Vehiculos.Vehiculo;
 import java.util.HashMap;
+import java.util.Map;
+import java.util.Set;
 
 
 
@@ -33,6 +35,15 @@ public class VehiculosdeClientes {
     public String BuscarVehiculosdeClientes(Cliente cliente){
          return vehiculosdeclientes.get(cliente).toString();
     }
-    
+     public String listarVehiculosdeClientes() {
+        StringBuilder sb = new StringBuilder();
+        Set<Map.Entry<Cliente, Vehiculo>> entradas = vehiculosdeclientes.entrySet();
+        
+        for (Map.Entry<Cliente, Vehiculo> entrada : entradas) {
+            sb.append(entrada.getKey()).append(" - ").append(entrada.getValue()).append("\n");
+        }
+        
+        return sb.toString();
+    }
 }
 
