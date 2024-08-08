@@ -4,17 +4,19 @@
  */
 package GUIS;
 
+import Vehiculos.ListaVehiculos;
+import Vehiculos.Vehiculo;
+
 /**
  *
  * @author fabia
  */
 public class GUIVehiculo extends javax.swing.JInternalFrame {
 
-    /**
-     * Creates new form GUIVehiculo
-     */
+   private ListaVehiculos vehiculos;
     public GUIVehiculo() {
         initComponents();
+        vehiculos = new ListaVehiculos();
     }
 
     /**
@@ -170,23 +172,31 @@ public class GUIVehiculo extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void NuevoBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NuevoBtnActionPerformed
-
+TxtNombre.setText("");
+TxtNombre1.setText("");
+TxtNombre2.setText("");
+TxtNombre3.setText("");
     }//GEN-LAST:event_NuevoBtnActionPerformed
 
     private void BtnAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnAgregarActionPerformed
+Vehiculo vehiculo = new Vehiculo(TxtNombre.getText(),TxtNombre1.getText(),TxtNombre2.getText(),Integer.parseInt(TxtNombre3.getText()));
+vehiculos.addVehiculo(vehiculo);
 
     }//GEN-LAST:event_BtnAgregarActionPerformed
 
     private void BtnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnEliminarActionPerformed
-
+vehiculos.eliminarVehiculo(BtnEliminar.getText());
     }//GEN-LAST:event_BtnEliminarActionPerformed
 
     private void BtnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnBuscarActionPerformed
-
+vehiculos.buscarVehiculo(BtnBuscar.getText());
     }//GEN-LAST:event_BtnBuscarActionPerformed
 
     private void BtnListaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnListaActionPerformed
-
+GUIListarVehiculo listaVehiculos = new GUIListarVehiculo(vehiculos.listarVehiculos());
+listaVehiculos.setEnabled(true);
+listaVehiculos.setVisible(true);
+listaVehiculos.set
     }//GEN-LAST:event_BtnListaActionPerformed
 
 
