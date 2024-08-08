@@ -11,7 +11,7 @@ import java.time.LocalDate;
  * @author ASUS
  */
 public class Reparacion {
-      private int id;
+      private String id;
     private String vehiculo;
     private String mecanico;
     private LocalDate fecha;
@@ -19,21 +19,21 @@ public class Reparacion {
     private String estado;
 
     // Constructor
-    public Reparacion(int id, String vehiculo, String mecanico, LocalDate fecha, String descripcion, String estado) {
+    public Reparacion(String id, String vehiculo, String mecanico, String descripcion, String estado) {
         this.id = id;
         this.vehiculo = vehiculo;
         this.mecanico = mecanico;
-        this.fecha = fecha;
+        this.fecha = LocalDate.now();
         this.descripcion = descripcion;
-        this.estado = estado;
+        this.estado = "Pendiente";
     }
 
     // Getters y Setters
-    public int getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
 
