@@ -6,8 +6,14 @@ import java.util.ArrayList;
 
 public class ListaVehiculos {
      private ArrayList<Vehiculo> listaVehiculos;
-
-    public ListaVehiculos() {
+     private static ListaVehiculos listaVehiculo;
+     public static ListaVehiculos getInstanceV(){
+         if(listaVehiculo==null){
+             listaVehiculo = new ListaVehiculos();
+         }
+         return listaVehiculo;
+     }
+    private ListaVehiculos() {
         this.listaVehiculos = new ArrayList<>();
     }
      

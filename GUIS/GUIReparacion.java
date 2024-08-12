@@ -8,6 +8,7 @@ import Mecanicos.Mecanico;
 import Reparaciones.GestionarReparaciones;
 import Reparaciones.ListaReparaciones;
 import Reparaciones.Reparacion;
+import Vehiculos.ListaVehiculos;
 import Vehiculos.Vehiculo;
 
 /**
@@ -21,11 +22,13 @@ public class GUIReparacion extends javax.swing.JInternalFrame {
      */
     private ListaReparaciones listRep;
     private GestionarReparaciones GestRep;
+    private ListaVehiculos listaV;
     
     public GUIReparacion() {
         initComponents();
         listRep = new ListaReparaciones();
         GestRep = new GestionarReparaciones();
+        listaV = ListaVehiculos.getInstanceV();
     }
 
     /**

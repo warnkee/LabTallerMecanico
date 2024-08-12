@@ -18,7 +18,7 @@ public class GUIVehiculo extends javax.swing.JInternalFrame {
    private ListaVehiculos vehiculos;
     public GUIVehiculo() {
         initComponents();
-        vehiculos = new ListaVehiculos();
+        vehiculos = ListaVehiculos.getInstanceV();
     }
 
     /**
