@@ -41,7 +41,8 @@ public class GestionarReparaciones {
         
         public void EliminarRep(String ID){
             for(Reparacion rep:colaReparaciones){
-                if(rep.getId().equals(ID))
+                if(rep.getId().equals(ID)){
             }
+        }
         }
 }
