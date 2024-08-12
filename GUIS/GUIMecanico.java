@@ -14,13 +14,11 @@ import javax.swing.JOptionPane;
  */
 public class GUIMecanico extends javax.swing.JInternalFrame {
 
-    /**
-     * Creates new form Prueba
-     */
+   
     private ListaMecanicos mec;
     public GUIMecanico() {
         initComponents();
-        mec = new ListaMecanicos();
+        mec = ListaMecanicos.getInstanceV();
     }
 
     /**

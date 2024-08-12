@@ -11,6 +11,7 @@ import Reparaciones.ListaReparaciones;
 import Reparaciones.Reparacion;
 import Vehiculos.ListaVehiculos;
 import Vehiculos.Vehiculo;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -25,6 +26,7 @@ public class GUIReparacion extends javax.swing.JInternalFrame {
     private GestionarReparaciones GestRep;
     private ListaVehiculos listaV;
     private ListaMecanicos listaM;
+    private GUIListarReparaciones GUIlist;
     
     public GUIReparacion() {
         initComponents();
@@ -57,7 +59,7 @@ public class GUIReparacion extends javax.swing.JInternalFrame {
         TxtEstado = new javax.swing.JTextField();
         NuevoBtn = new javax.swing.JButton();
         BtnAgregar = new javax.swing.JButton();
-        BtnEliminar = new javax.swing.JButton();
+        BtnCambiar = new javax.swing.JButton();
         BtnBuscar = new javax.swing.JButton();
         BtnLista = new javax.swing.JButton();
         jLabel10 = new javax.swing.JLabel();
@@ -102,11 +104,11 @@ public class GUIReparacion extends javax.swing.JInternalFrame {
             }
         });
 
-        BtnEliminar.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        BtnEliminar.setText("Eliminar");
-        BtnEliminar.addActionListener(new java.awt.event.ActionListener() {
+        BtnCambiar.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        BtnCambiar.setText("Cambiar Estado");
+        BtnCambiar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BtnEliminarActionPerformed(evt);
+                BtnCambiarActionPerformed(evt);
             }
         });
 
@@ -165,22 +167,22 @@ public class GUIReparacion extends javax.swing.JInternalFrame {
                         .addComponent(TxtFecha, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(TxtEstado, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 21, Short.MAX_VALUE))))
+                        .addGap(0, 27, Short.MAX_VALUE))))
             .addGroup(layout.createSequentialGroup()
-                .addGap(146, 146, 146)
+                .addGap(117, 117, 117)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(NuevoBtn)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(BtnAgregar)
-                        .addGap(18, 18, 18)
-                        .addComponent(BtnEliminar)
-                        .addGap(18, 18, 18)
-                        .addComponent(BtnBuscar))
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addComponent(jLabel10)
-                        .addComponent(BtnLista, javax.swing.GroupLayout.PREFERRED_SIZE, 426, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(0, 0, Short.MAX_VALUE))
+                        .addComponent(BtnLista, javax.swing.GroupLayout.PREFERRED_SIZE, 426, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(NuevoBtn)
+                        .addGap(18, 18, 18)
+                        .addComponent(BtnAgregar)
+                        .addGap(27, 27, 27)
+                        .addComponent(BtnCambiar)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(BtnBuscar)))
+                .addGap(133, 133, 133))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -207,7 +209,7 @@ public class GUIReparacion extends javax.swing.JInternalFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(NuevoBtn)
                     .addComponent(BtnAgregar)
-                    .addComponent(BtnEliminar)
+                    .addComponent(BtnCambiar)
                     .addComponent(BtnBuscar))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(BtnLista, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -224,24 +226,61 @@ public class GUIReparacion extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_NuevoBtnActionPerformed
 
     private void BtnAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnAgregarActionPerformed
-   Vehiculo v = new Vehiculo(this.TxtVehiculo.getText());
-   Mecanico m = new Mecanico(this.TxtMecanico.getText());
-   Reparacion rep = new Reparacion(this.TxtId.getText(),v,m,this.TxtDescripcion.getText());
-      GestRep.AddReparacion(rep);
-      
-    }//GEN-LAST:event_BtnAgregarActionPerformed
-
-    private void BtnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnEliminarActionPerformed
-      
+  
+        Mecanico m = listaM.BuscarMecanico(this.TxtId.getText());
+        Vehiculo v = listaV.buscarVehiculo(this.TxtVehiculo.getText());
         
-    }//GEN-LAST:event_BtnEliminarActionPerformed
+     if(listaM.BuscarMecanico(this.TxtId.getText())!=null && listaV.buscarVehiculo(this.TxtVehiculo.getText())!=null&&!this.TxtId.getText().isEmpty()){
+      Reparacion rep = new Reparacion(TxtId.getText(),v,m,this.TxtDescripcion.getText());
+      GestRep.AddReparacion(rep);
+      JOptionPane.showMessageDialog(this, 
+                    "la Reparacion se agrego exitosamente.", 
+                    "Éxito", 
+                    JOptionPane.INFORMATION_MESSAGE);
+                    this.TxtId.setText("");
+                    this.TxtVehiculo.setText("");
+                    this.TxtMecanico.setText("");
+                    this.TxtDescripcion.setText("");
+                     this.TxtEstado.setText("");
+     }else{
+         JOptionPane.showMessageDialog(this, 
+                    "¡No se pudo agregar la reparacion!", 
+                    "Alerta", 
+                    JOptionPane.WARNING_MESSAGE);
+     }
+    }//GEN-LAST:event_BtnAgregarActionPerformed
+    
+    private void BtnCambiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnCambiarActionPerformed
+     
+        GestRep.cambiarEstado(this.TxtEstado.getText());
+    }//GEN-LAST:event_BtnCambiarActionPerformed
 
     private void BtnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnBuscarActionPerformed
-
+       Reparacion rep = listRep.BuscarReparacion(this.TxtId.getText());
+       if(listRep.BuscarReparacion(this.TxtId.getText())!=null){
+             JOptionPane.showMessageDialog(this, 
+                    "la Reparacion se encontro exitosamente.", 
+                    "Éxito", 
+                    JOptionPane.INFORMATION_MESSAGE);
+           this.TxtId.setText(rep.getId());
+           this.TxtMecanico.setText(rep.getMecanico().getId());
+           this.TxtVehiculo.setText(rep.getVehiculo().getMatricula());
+           this.TxtFecha.setText(rep.getFecha().toString());
+           this.TxtDescripcion.setText(rep.getDescripcion());
+           this.TxtEstado.setText(rep.getEstado());
+           
+       }else{
+              JOptionPane.showMessageDialog(this, 
+                    "¡No se pudo encontrar la reparacion!", 
+                    "Alerta", 
+                    JOptionPane.WARNING_MESSAGE);
+       }
     }//GEN-LAST:event_BtnBuscarActionPerformed
 
     private void BtnListaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnListaActionPerformed
-
+        GUIlist = new GUIListarReparaciones(listRep.listarReparacionesCompletadas());
+        GUIlist.setEnabled(true);
+        GUIlist.setVisible(true);
     }//GEN-LAST:event_BtnListaActionPerformed
 
     private void TxtIdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TxtIdActionPerformed
@@ -252,7 +291,7 @@ public class GUIReparacion extends javax.swing.JInternalFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BtnAgregar;
     private javax.swing.JButton BtnBuscar;
-    private javax.swing.JButton BtnEliminar;
+    private javax.swing.JButton BtnCambiar;
     private javax.swing.JButton BtnLista;
     private javax.swing.JButton NuevoBtn;
     private javax.swing.JTextField TxtDescripcion;
