@@ -196,7 +196,14 @@ vehiculos.buscarVehiculo(BtnBuscar.getText());
 GUIListarVehiculo listaVehiculos = new GUIListarVehiculo(vehiculos.listarVehiculos());
 listaVehiculos.setEnabled(true);
 listaVehiculos.setVisible(true);
+<<<<<<< HEAD
 
+=======
+<<<<<<< HEAD
+
+=======
+>>>>>>> e5041b994918cb752417d2e168f3383e0c8ac0a9
+>>>>>>> fa1d0697cc13d35e9f355109f403d485972a5c61
     }//GEN-LAST:event_BtnListaActionPerformed
 
 

@@ -48,6 +48,11 @@ public class Mecanico {
         return "Mecanico: " + " id: " + id + ", nombre: " + nombre + ", especialidad: " + especialidad ;
     }
     
+<<<<<<< HEAD
     
    
+=======
+ 
+    
+>>>>>>> fa1d0697cc13d35e9f355109f403d485972a5c61
 }
