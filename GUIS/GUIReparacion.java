@@ -4,6 +4,7 @@
  */
 package GUIS;
 
+import Mecanicos.ListaMecanicos;
 import Mecanicos.Mecanico;
 import Reparaciones.GestionarReparaciones;
 import Reparaciones.ListaReparaciones;
@@ -23,12 +24,14 @@ public class GUIReparacion extends javax.swing.JInternalFrame {
     private ListaReparaciones listRep;
     private GestionarReparaciones GestRep;
     private ListaVehiculos listaV;
+    private ListaMecanicos listaM;
     
     public GUIReparacion() {
         initComponents();
         listRep = new ListaReparaciones();
         GestRep = new GestionarReparaciones();
         listaV = ListaVehiculos.getInstanceV();
+        listaM = ListaMecanicos.getInstanceV();
     }
 
     /**

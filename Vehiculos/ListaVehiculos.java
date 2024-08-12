@@ -6,6 +6,7 @@ import java.util.ArrayList;
 
 public class ListaVehiculos {
      private ArrayList<Vehiculo> listaVehiculos;
+     
      private static ListaVehiculos listaVehiculo;
      public static ListaVehiculos getInstanceV(){
          if(listaVehiculo==null){

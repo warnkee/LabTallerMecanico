@@ -14,8 +14,15 @@ import java.util.HashSet;
 public class ListaMecanicos {
      private  HashSet<Mecanico> mec;
 
-    public ListaMecanicos() {
-        mec = new HashSet<>();
+   private static ListaMecanicos listaMecanico;
+     public static ListaMecanicos getInstanceV(){
+         if(listaMecanico==null){
+             listaMecanico = new ListaMecanicos();
+         }
+         return listaMecanico;
+     }
+    private ListaMecanicos() {
+        this.mec = new HashSet<>();
     }
 
     public String listarMecanicos() {
