@@ -227,7 +227,7 @@ public class GUIMecanico extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_BtnBuscarActionPerformed
 
     private void BtnListaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnListaActionPerformed
-       GUIListarMecanico listaMecanicos = new GUIListarMecanico (mec.listarMecanicos());
+       GUIListarMecanicos listaMecanicos = new GUIListarMecanicos (mec.listarMecanicos());
        listaMecanicos.setEnabled(true);
        listaMecanicos.setEnabled(true);
     }//GEN-LAST:event_BtnListaActionPerformed

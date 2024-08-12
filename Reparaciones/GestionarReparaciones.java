@@ -42,12 +42,10 @@ public class GestionarReparaciones {
         public void EliminarRep(String ID){
             for(Reparacion rep:colaReparaciones){
                 if(rep.getId().equals(ID)){
-<<<<<<< HEAD
-=======
+
                     
                 }
->>>>>>> fa1d0697cc13d35e9f355109f403d485972a5c61
             }
         }
         }
-}
+
