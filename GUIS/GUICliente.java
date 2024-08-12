@@ -4,6 +4,10 @@
  */
 package GUIS;
 
+import Clientes.Cliente;
+import Clientes.ListaCliente;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author fabia
@@ -13,8 +17,11 @@ public class GUICliente extends javax.swing.JInternalFrame {
     /**
      * Creates new form GUICliente
      */
+    private GUILIstarClientes listC;
+    private ListaCliente list;
     public GUICliente() {
         initComponents();
+        list = new ListaCliente();
     }
 
     /**
@@ -30,16 +37,18 @@ public class GUICliente extends javax.swing.JInternalFrame {
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
+        TxtId = new javax.swing.JTextField();
+        TxtDireccion = new javax.swing.JTextField();
+        TxtTelefono = new javax.swing.JTextField();
         TxtNombre = new javax.swing.JTextField();
-        TxtNombre2 = new javax.swing.JTextField();
-        TxtNombre3 = new javax.swing.JTextField();
-        TxtNombre1 = new javax.swing.JTextField();
         NuevoBtn = new javax.swing.JButton();
         BtnAgregar = new javax.swing.JButton();
         BtnEliminar = new javax.swing.JButton();
         BtnBuscar = new javax.swing.JButton();
         BtnLista = new javax.swing.JButton();
         jLabel10 = new javax.swing.JLabel();
+
+        setClosable(true);
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel2.setText("Id");
@@ -107,20 +116,20 @@ public class GUICliente extends javax.swing.JInternalFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(TxtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(TxtId, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(TxtNombre1, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(TxtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel4))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(TxtNombre3, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(TxtTelefono, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(TxtNombre2, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(TxtDireccion, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(115, 115, 115)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -151,10 +160,10 @@ public class GUICliente extends javax.swing.JInternalFrame {
                     .addComponent(jLabel5))
                 .addGap(4, 4, 4)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(TxtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(TxtNombre2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(TxtNombre3, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(TxtNombre1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(TxtId, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(TxtDireccion, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(TxtTelefono, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(TxtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(56, 56, 56)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(NuevoBtn)
@@ -165,7 +174,7 @@ public class GUICliente extends javax.swing.JInternalFrame {
                 .addComponent(BtnLista, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jLabel10)
-                .addContainerGap(35, Short.MAX_VALUE))
+                .addContainerGap(43, Short.MAX_VALUE))
         );
 
         pack();
@@ -176,19 +185,69 @@ public class GUICliente extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_NuevoBtnActionPerformed
 
     private void BtnAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnAgregarActionPerformed
-
+        Cliente c = new Cliente(this.TxtId.getText(),this.TxtNombre.getText(),this.TxtTelefono.getText(),this.TxtDireccion.getText());
+        boolean v = list.AddClientes(c);
+        if(v){
+             JOptionPane.showMessageDialog(this, 
+                    "El cliente se agrego exitosamente.", 
+                    "Éxito", 
+                    JOptionPane.INFORMATION_MESSAGE);
+                    this.TxtId.setText("");
+                    this.TxtNombre.setText("");
+                    this.TxtTelefono.setText("");
+                    this.TxtDireccion.setText("");
+        }else{
+                 JOptionPane.showMessageDialog(this, 
+                    "¡El Id de los clientes no se puede repetir!", 
+                    "Alerta", 
+                    JOptionPane.WARNING_MESSAGE);
+        }
+        
     }//GEN-LAST:event_BtnAgregarActionPerformed
 
     private void BtnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnEliminarActionPerformed
-
+              if( list.EliminarCliente(this.TxtId.getText())){
+             JOptionPane.showMessageDialog(this, 
+                    "El cliente se elimino exitosamente.", 
+                    "Éxito", 
+                    JOptionPane.INFORMATION_MESSAGE);
+        }else{
+                 JOptionPane.showMessageDialog(this, 
+                    "¡El cliente o el Id no existen!", 
+                    "Alerta", 
+                    JOptionPane.WARNING_MESSAGE);
+        }
+       
+                
     }//GEN-LAST:event_BtnEliminarActionPerformed
 
     private void BtnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnBuscarActionPerformed
-
+               if(list.buscarCliente(this.TxtId.getText())!=null){
+             JOptionPane.showMessageDialog(this, 
+                    "El cliente se encontro exitosamente.", 
+                    "Éxito", 
+                    JOptionPane.INFORMATION_MESSAGE);
+                    this.TxtId.setText(list.buscarCliente(this.TxtId.getText()).getId());
+                    this.TxtNombre.setText(list.buscarCliente(this.TxtId.getText()).getNombre());
+                    this.TxtTelefono.setText(list.buscarCliente(this.TxtId.getText()).getTelefono());
+                    this.TxtDireccion.setText(list.buscarCliente(this.TxtId.getText()).getDireccion());
+        }else{
+                 JOptionPane.showMessageDialog(this, 
+                    "¡El cliente o el Id no existen!", 
+                    "Alerta", 
+                    JOptionPane.WARNING_MESSAGE);
+                    this.TxtId.setText("");
+                    this.TxtNombre.setText("");
+                    this.TxtTelefono.setText("");
+                    this.TxtDireccion.setText("");
+        }
+       
     }//GEN-LAST:event_BtnBuscarActionPerformed
 
     private void BtnListaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnListaActionPerformed
-
+        this.listC = new GUILIstarClientes(list.listarClientes());
+        listC.setEnabled(true);
+        listC.setVisible(true);
     }//GEN-LAST:event_BtnListaActionPerformed
 
 
@@ -198,10 +257,10 @@ public class GUICliente extends javax.swing.JInternalFrame {
     private javax.swing.JButton BtnEliminar;
     private javax.swing.JButton BtnLista;
     private javax.swing.JButton NuevoBtn;
+    private javax.swing.JTextField TxtDireccion;
+    private javax.swing.JTextField TxtId;
     private javax.swing.JTextField TxtNombre;
-    private javax.swing.JTextField TxtNombre1;
-    private javax.swing.JTextField TxtNombre2;
-    private javax.swing.JTextField TxtNombre3;
+    private javax.swing.JTextField TxtTelefono;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

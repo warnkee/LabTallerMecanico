@@ -9,12 +9,12 @@ package Clientes;
  * @author fabia
  */
 public class Cliente {
-    private int id;
+    private String id;
     private String nombre;
     private String telefono;
     private String direccion;
 
-    public int getId() {
+    public String getId() {
         return id;
     }
 
@@ -38,7 +38,7 @@ public class Cliente {
         this.direccion = direccion;
     }
 
-    public Cliente(int id, String nombre, String telefono, String direccion) {
+    public Cliente(String id, String nombre, String telefono, String direccion) {
         this.id = id;
         this.nombre = nombre;
         this.telefono = telefono;

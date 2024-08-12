@@ -36,7 +36,7 @@ public class GUIMenu extends javax.swing.JFrame {
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
-        jMenuItem2 = new javax.swing.JMenuItem();
+        ClienteMnu = new javax.swing.JMenuItem();
         jMenuItem3 = new javax.swing.JMenuItem();
         jMenuItem4 = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
@@ -47,12 +47,14 @@ public class GUIMenu extends javax.swing.JFrame {
         jDesktopPane1.setLayout(jDesktopPane1Layout);
         jDesktopPane1Layout.setHorizontalGroup(
             jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 391, Short.MAX_VALUE)
+            .addGap(0, 682, Short.MAX_VALUE)
         );
         jDesktopPane1Layout.setVerticalGroup(
             jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 240, Short.MAX_VALUE)
+            .addGap(0, 378, Short.MAX_VALUE)
         );
+
+        jMenuBar1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
 
         jMenu1.setText("Gestion");
         jMenu1.addActionListener(new java.awt.event.ActionListener() {
@@ -70,9 +72,14 @@ public class GUIMenu extends javax.swing.JFrame {
         });
         jMenu1.add(jMenuItem1);
 
-        jMenuItem2.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_S, java.awt.event.InputEvent.CTRL_DOWN_MASK));
-        jMenuItem2.setText("Clientes");
-        jMenu1.add(jMenuItem2);
+        ClienteMnu.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_S, java.awt.event.InputEvent.CTRL_DOWN_MASK));
+        ClienteMnu.setText("Clientes");
+        ClienteMnu.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ClienteMnuActionPerformed(evt);
+            }
+        });
+        jMenu1.add(ClienteMnu);
 
         jMenuItem3.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_D, java.awt.event.InputEvent.CTRL_DOWN_MASK));
         jMenuItem3.setText("Vehiculos");
@@ -128,6 +135,14 @@ public class GUIMenu extends javax.swing.JFrame {
 
     }//GEN-LAST:event_jMenu1ActionPerformed
 
+    private void ClienteMnuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ClienteMnuActionPerformed
+        // TODO add your handling code here:
+           GUICliente guivehiculo = new GUICliente();
+   jDesktopPane1.add(guivehiculo);
+   guivehiculo.setVisible(true);
+    guivehiculo.setEnabled(true);
+    }//GEN-LAST:event_ClienteMnuActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -140,12 +155,12 @@ public class GUIMenu extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JMenuItem ClienteMnu;
     private javax.swing.JDesktopPane jDesktopPane1;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
-    private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JMenuItem jMenuItem4;
     // End of variables declaration//GEN-END:variables
