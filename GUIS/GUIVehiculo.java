@@ -190,9 +190,10 @@ vehiculos.addVehiculo(vehiculo);
 if(TxtNombre.getText().isEmpty()){
 JOptionPane.showMessageDialog(null, "La Matricula no puede estar vacia", "Informacion Incompleta", JOptionPane.WARNING_MESSAGE);
 }else{
-    
+    if(vehiculos.buscarVehiculo(TxtNombre.getText())!=null){
       vehiculos.eliminarVehiculo(TxtNombre.getText());
       JOptionPane.showMessageDialog(null, "Vehiculo Eliminado!", "Transaccion Completa", JOptionPane.OK_OPTION);
+}
 }
     }//GEN-LAST:event_BtnEliminarActionPerformed
 

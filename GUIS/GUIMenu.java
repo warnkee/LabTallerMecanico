@@ -128,7 +128,10 @@ public class GUIMenu extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenuItem3ActionPerformed
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
-        // TODO add your handling code here:
+        GUIMecanico guimecanico = new GUIMecanico();
+   jDesktopPane1.add(guimecanico);
+   guimecanico.setVisible(true);
+    guimecanico.setEnabled(true);
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     private void jMenu1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenu1ActionPerformed
