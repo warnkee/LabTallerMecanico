@@ -9,13 +9,14 @@ package GUIS;
  * @author ASUS
  */
 public class GUIListarVehiculo extends javax.swing.JFrame {
-
+    
+    
     /**
      * Creates new form GUIListarVehiculo
      */
-    public GUIListarVehiculo(String Vehiculo) {
+    public GUIListarVehiculo(String vehiculo) {
         initComponents();
-        jTextArea1.setText(Vehiculo);
+         jTextArea1.setText(vehiculo);
     }
 
     /**

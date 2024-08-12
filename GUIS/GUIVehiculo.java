@@ -4,8 +4,10 @@
  */
 package GUIS;
 
+
 import Vehiculos.ListaVehiculos;
 import Vehiculos.Vehiculo;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -185,17 +187,31 @@ vehiculos.addVehiculo(vehiculo);
     }//GEN-LAST:event_BtnAgregarActionPerformed
 
     private void BtnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnEliminarActionPerformed
-vehiculos.eliminarVehiculo(BtnEliminar.getText());
+if(TxtNombre.getText().isEmpty()){
+JOptionPane.showMessageDialog(null, "La Matricula no puede estar vacia", "Informacion Incompleta", JOptionPane.WARNING_MESSAGE);
+}else{
+    
+      vehiculos.eliminarVehiculo(TxtNombre.getText());
+      JOptionPane.showMessageDialog(null, "Vehiculo Eliminado!", "Transaccion Completa", JOptionPane.OK_OPTION);
+}
     }//GEN-LAST:event_BtnEliminarActionPerformed
 
     private void BtnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnBuscarActionPerformed
-vehiculos.buscarVehiculo(BtnBuscar.getText());
+     
+        if(vehiculos.buscarVehiculo(TxtNombre.getText())!=null){
+TxtNombre1.setText(vehiculos.buscarVehiculo(TxtNombre.getText()).getModelo());
+TxtNombre2.setText(vehiculos.buscarVehiculo(TxtNombre.getText()).getMarca());
+TxtNombre3.setText(String.valueOf(vehiculos.buscarVehiculo(TxtNombre.getText()).getAnnioFabricacion()));
+        }else{
+  JOptionPane.showMessageDialog(null, "La Matricula no puede estar vacia", "Informacion Incompleta", JOptionPane.WARNING_MESSAGE);
+        }
     }//GEN-LAST:event_BtnBuscarActionPerformed
 
     private void BtnListaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnListaActionPerformed
-GUIListarVehiculo listaVehiculos = new GUIListarVehiculo(vehiculos.listarVehiculos());
-listaVehiculos.setEnabled(true);
-listaVehiculos.setVisible(true);
+        GUIListarVehiculo listaVehiculos = new GUIListarVehiculo(vehiculos.listarVehiculos());
+        //listaVehiculos.setText(vehiculos.listarVehiculos());
+        listaVehiculos.setEnabled(true);
+        listaVehiculos.setVisible(true);
 
     }//GEN-LAST:event_BtnListaActionPerformed
 
