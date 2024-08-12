@@ -9,8 +9,7 @@ package Mecanicos;
  * @author ASUS
  */
 public class Mecanico {
-<<<<<<< HEAD
-=======
+
     private String id;
     private String nombre;
     private String especialidad;
@@ -49,9 +48,6 @@ public class Mecanico {
         return "Mecanico: " + " id: " + id + ", nombre: " + nombre + ", especialidad: " + especialidad ;
     }
     
-    
-    
-    
->>>>>>> 91cfc985258e8dbfb919b46f864a8024919ce7c3
+ 
     
 }

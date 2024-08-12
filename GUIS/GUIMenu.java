@@ -156,10 +156,8 @@ public class GUIMenu extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new GUIMenu().setVisible(true);
-            }
+        java.awt.EventQueue.invokeLater(() -> {
+            new GUIMenu().setVisible(true);
         });
     }
 
